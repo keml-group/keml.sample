@@ -1,6 +1,0 @@
-Mean of |fTi - F(b)|: 0.5551
-Variance of |fTi - F(b)|: 0.2454
-Standard deviation of |fTi - F(b)|: 0.4954
-Mean of |fTa - F(b)|: 0.6820
-Variance of |fTa - F(b)|: 0.1835
-Standard deviation of |fTa - F(b)|: 0.4284
