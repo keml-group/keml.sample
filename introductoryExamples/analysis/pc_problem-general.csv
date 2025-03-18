@@ -1,0 +1,12 @@
+MessagePart
+"",LLM,PC
+SendMsg,4,3
+ReceiveMsg,4,3
+Interrupted,0,0
+
+KnowledgePart
+Information,LLM,PC,Author
+Facts,4,3,0
+Instructions,3,0,0
+Repetitions,0
+RecAttacks,2

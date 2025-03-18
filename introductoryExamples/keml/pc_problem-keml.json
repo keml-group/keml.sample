@@ -1,0 +1,280 @@
+{
+  "eClass" : "http://www.unikoblenz.de/keml#//Conversation",
+  "title" : "pc_problem",
+  "author" : {
+    "messages" : [ {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "Lags in game after cleaning PC Whats the problem?",
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      }
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Here are some reasons",
+      "timing" : 1,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "generates" : [ {
+        "targetedBy" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+          "$ref" : "//@author/@messages.3/@generates.0/@causes.1"
+        } ],
+        "message" : "Software Issue"
+      }, {
+        "targetedBy" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+          "$ref" : "//@author/@messages.5/@generates.0/@causes.0"
+        }, {
+          "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+          "$ref" : "//@author/@messages.13/@generates.0/@causes.0"
+        }, {
+          "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+          "$ref" : "//@author/@messages.3/@generates.0/@causes.0"
+        } ],
+        "message" : "Hardware Issue"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "Can it be on the software side if it occurs directly after cleaning?",
+      "timing" : 2,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      }
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Yes it is more likely thats it is  a hardware issue. Here are more steps",
+      "timing" : 3,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "generates" : [ {
+        "message" : "Problem occurs directly after cleaning Try Hardware Solution",
+        "causes" : [ {
+          "linkText" : "",
+          "type" : "STRONG_SUPPORT",
+          "target" : {
+            "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+            "$ref" : "//@author/@messages.1/@generates.1"
+          }
+        }, {
+          "targetedBy" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+            "$ref" : "//@author/@messages.7/@generates.1/@causes.0"
+          } ],
+          "linkText" : "",
+          "type" : "STRONG_ATTACK",
+          "target" : {
+            "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+            "$ref" : "//@author/@messages.1/@generates.0"
+          }
+        } ]
+      }, {
+        "message" : "New steps to fix Hardware Issue",
+        "isInstruction" : true,
+        "isUsedOn" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+          "$ref" : "//@author/@messages.4"
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "Try Hardware solutions -",
+      "timing" : 4,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.1"
+      },
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+        "$ref" : "//@author/@messages.3/@generates.1"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Hardware Solutions do not solve issue No Issue while watching YouTube Videos",
+      "timing" : 5,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.1"
+      },
+      "generates" : [ {
+        "message" : "No issue while watching YouTube videos",
+        "causes" : [ {
+          "linkText" : "",
+          "type" : "STRONG_ATTACK",
+          "target" : {
+            "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+            "$ref" : "//@author/@messages.1/@generates.1"
+          }
+        } ],
+        "isUsedOn" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+          "$ref" : "//@author/@messages.6"
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "Nothing worked. But there is no issue when watching Youtube.",
+      "timing" : 6,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+        "$ref" : "//@author/@messages.5/@generates.0"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Maybe its the game driver or it is a low power issue.",
+      "timing" : 7,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "generates" : [ {
+        "message" : "check power supply",
+        "isInstruction" : true,
+        "isUsedOn" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+          "$ref" : "//@author/@messages.12"
+        } ]
+      }, {
+        "message" : "Nvidia Driver.",
+        "causes" : [ {
+          "targetedBy" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+            "$ref" : "//@author/@messages.9/@generates.0/@causes.0"
+          } ],
+          "linkText" : "",
+          "type" : "STRONG_ATTACK",
+          "target" : {
+            "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+            "$ref" : "//@author/@messages.3/@generates.0/@causes.1"
+          }
+        } ],
+        "isUsedOn" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+          "$ref" : "//@author/@messages.8"
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "check drivers -",
+      "timing" : 8,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.1"
+      },
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+        "$ref" : "//@author/@messages.7/@generates.1"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "drivers up to date -",
+      "timing" : 9,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.1"
+      },
+      "generates" : [ {
+        "message" : "Drivers up to date",
+        "causes" : [ {
+          "linkText" : "",
+          "type" : "STRONG_ATTACK",
+          "target" : {
+            "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+            "$ref" : "//@author/@messages.7/@generates.1/@causes.0"
+          }
+        } ],
+        "isUsedOn" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+          "$ref" : "//@author/@messages.10"
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "software is up to date so it has to a hardware issue",
+      "timing" : 10,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+        "$ref" : "//@author/@messages.9/@generates.0"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "check cable management",
+      "timing" : 11,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "generates" : [ {
+        "targetedBy" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//InformationLink",
+          "$ref" : "//@author/@messages.13/@generates.0/@causes.1"
+        } ],
+        "message" : "check cable management",
+        "isInstruction" : true,
+        "isUsedOn" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+          "$ref" : "//@author/@messages.12"
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "check cable managment -",
+      "timing" : 12,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.1"
+      },
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+        "$ref" : "//@author/@messages.7/@generates.0"
+      }, {
+        "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+        "$ref" : "//@author/@messages.11/@generates.0"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "mainboard power cable has loose connection",
+      "timing" : 13,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.1"
+      },
+      "generates" : [ {
+        "message" : "mainboard power cable has loose connection",
+        "causes" : [ {
+          "linkText" : "",
+          "type" : "STRONG_SUPPORT",
+          "target" : {
+            "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+            "$ref" : "//@author/@messages.1/@generates.1"
+          }
+        }, {
+          "linkText" : "",
+          "type" : "STRONG_SUPPORT",
+          "target" : {
+            "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+            "$ref" : "//@author/@messages.11/@generates.0"
+          }
+        } ]
+      } ]
+    } ]
+  },
+  "conversationPartners" : [ {
+    "name" : "LLM"
+  }, {
+    "name" : "PC"
+  } ]
+}

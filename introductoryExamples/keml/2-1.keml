@@ -3,13 +3,13 @@
   <author>
     <messages xsi:type="keml:SendMessage" content="Can you find repositories that use log4j from github" counterPart="//@conversationPartners.0"/>
     <messages xsi:type="keml:ReceiveMessage" content="Steps how user can find them, incl 2 search strings" timing="1" counterPart="//@conversationPartners.0">
-      <generates message="log4j filename:pom.xml language:java" isInstruction="true" repeatedBy="//@author/@messages.3 //@author/@messages.5" targetedBy="//@author/@messages.13/@generates.1/@causes.0">
+      <generates targetedBy="//@author/@messages.13/@generates.1/@causes.0" message="log4j filename:pom.xml language:java" isInstruction="true" repeatedBy="//@author/@messages.3 //@author/@messages.5">
         <causes linkText="search string" target="//@author/@messages.1/@generates.2"/>
       </generates>
       <generates message="log4j filename:pom.xml" isInstruction="true">
         <causes linkText="" target="//@author/@messages.1/@generates.2"/>
       </generates>
-      <generates message="Steps how to search  on web search" isInstruction="true" repeatedBy="//@author/@messages.3" targetedBy="//@author/@messages.13/@generates.1/@causes.1 //@author/@messages.1/@generates.0/@causes.0 //@author/@messages.1/@generates.1/@causes.0"/>
+      <generates targetedBy="//@author/@messages.13/@generates.1/@causes.1 //@author/@messages.1/@generates.0/@causes.0 //@author/@messages.1/@generates.1/@causes.0" message="Steps how to search  on web search" isInstruction="true" repeatedBy="//@author/@messages.3"/>
     </messages>
     <messages xsi:type="keml:SendMessage" content="Please do it yourself, give me the resulting URLs" timing="2" counterPart="//@conversationPartners.0"/>
     <messages xsi:type="keml:ReceiveMessage" content="Unable since AI-LM, same steps with 1 search string" timing="3" counterPart="//@conversationPartners.0" repeats="//@author/@messages.1/@generates.0 //@author/@messages.1/@generates.2"/>
@@ -21,11 +21,11 @@
     </messages>
     <messages xsi:type="keml:SendMessage" content="Provide GitHub repositories that use log4j" timing="8" counterPart="//@conversationPartners.0"/>
     <messages xsi:type="keml:ReceiveMessage" content="Same 5 URLs, hint to search with search string from before" timing="9" counterPart="//@conversationPartners.0">
-      <generates message="Urls: apache/kafka, apache/hadoop, apache/tomcat, spring, hibernate/orm" targetedBy="//@author/@messages.11/@generates.0/@causes.0"/>
+      <generates targetedBy="//@author/@messages.11/@generates.0/@causes.0" message="Urls: apache/kafka, apache/hadoop, apache/tomcat, spring, hibernate/orm"/>
     </messages>
     <messages xsi:type="keml:SendMessage" content="Provide GitHub repositories that use log4j version 2" timing="10" counterPart="//@conversationPartners.0" uses="//@author/@preknowledge.0"/>
     <messages xsi:type="keml:ReceiveMessage" content="5 new URLs, adapted search string" timing="11" counterPart="//@conversationPartners.0">
-      <generates message="Urls: apache/log4j2, spring-boot, apache/spark, apache/cassandra, apache/flink" targetedBy="//@author/@messages.13/@generates.0/@causes.0 //@author/@messages.17/@generates.0/@causes.0">
+      <generates targetedBy="//@author/@messages.13/@generates.0/@causes.0 //@author/@messages.17/@generates.0/@causes.0" message="Urls: apache/log4j2, spring-boot, apache/spark, apache/cassandra, apache/flink">
         <causes linkText="Do they use version 1? less relevant since replaced" type="ATTACK" target="//@author/@messages.9/@generates.0"/>
       </generates>
     </messages>
@@ -36,18 +36,18 @@
         <causes linkText="" type="STRONG_SUPPORT" target="//@author/@messages.13/@generates.1"/>
         <causes linkText="" type="STRONG_ATTACK" target="//@author/@messages.15/@generates.0"/>
       </generates>
-      <generates message="log4j2 filename:pom.xml language:java" isInstruction="true" targetedBy="//@author/@messages.13/@generates.0/@causes.1">
+      <generates targetedBy="//@author/@messages.13/@generates.0/@causes.1" message="log4j2 filename:pom.xml language:java" isInstruction="true">
         <causes linkText="Version2 missing" type="ATTACK" target="//@author/@messages.1/@generates.0"/>
         <causes linkText="" target="//@author/@messages.1/@generates.2"/>
       </generates>
     </messages>
     <messages xsi:type="keml:SendMessage" content="List repositories using log4j version 2 from GitHub" timing="14" counterPart="//@conversationPartners.0"/>
     <messages xsi:type="keml:ReceiveMessage" content="Cannot do, no real-time access, same steps with refined query" timing="15" counterPart="//@conversationPartners.0">
-      <generates message="LLM has no real-time web access" repeatedBy="//@author/@messages.19 //@author/@messages.21 //@author/@messages.23" targetedBy="//@author/@messages.13/@generates.0/@causes.2"/>
+      <generates targetedBy="//@author/@messages.13/@generates.0/@causes.2" message="LLM has no real-time web access" repeatedBy="//@author/@messages.19 //@author/@messages.21 //@author/@messages.23"/>
     </messages>
     <messages xsi:type="keml:SendMessage" content="Provide repositories using log4j version 2 from GitHub" timing="16" counterPart="//@conversationPartners.0" uses="//@author/@preknowledge.0"/>
     <messages xsi:type="keml:ReceiveMessage" content="5 URLs, most from before" timing="17" counterPart="//@conversationPartners.0">
-      <generates message="Urls: apache/log4j2, spring-boot, apache/flink, apache/cassandra,  apache/beam" targetedBy="//@author/@messages.21/@generates.0/@causes.0">
+      <generates targetedBy="//@author/@messages.21/@generates.0/@causes.0" message="Urls: apache/log4j2, spring-boot, apache/flink, apache/cassandra,  apache/beam">
         <causes linkText="4 are the same, so those are relevant" type="SUPPORT" target="//@author/@messages.11/@generates.0"/>
       </generates>
     </messages>
