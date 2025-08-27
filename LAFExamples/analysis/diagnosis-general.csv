@@ -1,0 +1,11 @@
+MessagePart
+"",LLM,Browser
+SendMsg,7,1
+ReceiveMsg,7,1
+Interrupted,0,0
+
+KnowledgePart
+Information,LLM,Browser,Author
+Facts,11,1,7
+Instructions,0,0,0
+Repetitions,0

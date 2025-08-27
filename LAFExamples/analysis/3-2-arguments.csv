@@ -1,0 +1,79 @@
+LLM Facts
+Literal,Message
+L9,GitHub search cannot search for library versions
+L15,GitHub search can search for library versions
+L19,dependecies are in build files
+
+LLM Instructions
+Literal,Message
+L3,"log4j filename:build.gradle ""2.0"" ""2.1"" ""2.2"" ""2.3"" ""2.4"" ""2.5"" ""2.6"" ""2.7"" ""2.8"" ""2.9"" ""2.10""""2.11"" ""2.12"" ""2.13"" ""2.14"" ""2.15"" ""2.16"" ""2.17"""
+L5,utilize dependency management tool
+L10,log4j filename:pom.xml
+L12,log4j filename:build.gradle
+L16,Steps how to search  on GitHub as user
+L17,log4j filename:*.java
+L18,log4j version2.0...2.17.0
+L20,log4j filename:build.gradle 2.0..2.17.0
+L22,log4j version:2.0..2.17.0 -2.3.2 -2.12.4
+L24,Short description how to inspect usage of library in one repository
+L25,engage with community
+
+Browser Facts
+Literal,Message
+L0,5 URLs of unknown repositories
+L1,"0 results, wrong query"
+L2,~2k repositories
+L4,12 URLs of unknown repositories
+L6,mostly too new log4j version
+L13,7 URLs of unknown repositories
+L14,"most empty, none with gradle, one in 2.17.0 version"
+L21,"most empty, none with gradle, two in right versions"
+L23,"most empty, none with gradle, none in right version"
+
+Author PreKnowledge Facts
+Literal,Message
+L7,log4j versions2.0-beta through 2.17.0 are vulnerable
+L8,security fixes are 2.3.2 and 2.12.4
+L11,dependencies not in *.java
+
+Logic Arguments (<{premises} claim>)
+Claim,Argument
+¬L3,"[<{L1 => ¬L3}, ¬L3>]"
+L0,"[<{L4 => L0}, L0>]"
+¬L22,"[<{L23 => ¬L22}, ¬L22>]"
+¬L12,"[<{L2 => ¬L12}, ¬L12>, <{L6 => ¬L12}, ¬L12>]"
+L20,"[<{L4 => L20}, L20>]"
+L7,"[<{L7}, L7>]"
+L8,"[<{L8}, L8>]"
+¬L9,"[<{L15 => ¬L9}, ¬L9>]"
+L11,"[<{L11}, L11>, <{L19 => L11}, L11>]"
+¬L17,"[<{L19 => ¬L17}, ¬L17>, <{L11 => ¬L17}, ¬L17>]"
+L22,"[<{L0 => L22}, L22>]"
+¬L20,"[<{L21 => ¬L20}, ¬L20>]"
+¬L16,"[<{L9 => ¬L16}, ¬L16>]"
+¬L18,"[<{L14 => ¬L18}, ¬L18>]"
+L13,"[<{L4 => L13}, L13>]"
+L18,"[<{L13 => L18}, L18>]"
+
+Undercut Trees
+"└── <{L9 => ¬L16}, ¬L16>
+    └── <{L15 => ¬L9}, ¬L9>"
+
+Rebuttals
+Claim,rebutted by
+L17,"[<{L19 => ¬L17}, ¬L17>, <{L11 => ¬L17}, ¬L17>]"
+¬L22,"[<{L0 => L22}, L22>]"
+L9,"[<{L15 => ¬L9}, ¬L9>]"
+¬L7,"[<{L7}, L7>]"
+L20,"[<{L21 => ¬L20}, ¬L20>]"
+¬L8,"[<{L8}, L8>]"
+¬L0,"[<{L4 => L0}, L0>]"
+L22,"[<{L23 => ¬L22}, ¬L22>]"
+L16,"[<{L9 => ¬L16}, ¬L16>]"
+¬L20,"[<{L4 => L20}, L20>]"
+L12,"[<{L2 => ¬L12}, ¬L12>, <{L6 => ¬L12}, ¬L12>]"
+¬L11,"[<{L11}, L11>, <{L19 => L11}, L11>]"
+¬L18,"[<{L13 => L18}, L18>]"
+¬L13,"[<{L4 => L13}, L13>]"
+L18,"[<{L14 => ¬L18}, ¬L18>]"
+L3,"[<{L1 => ¬L3}, ¬L3>]"

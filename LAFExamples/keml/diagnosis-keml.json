@@ -1,0 +1,466 @@
+{
+  "eClass" : "http://www.unikoblenz.de/keml#//Conversation",
+  "title" : "diagnosis",
+  "author" : {
+    "messages" : [ {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "Help me narrow down the cause. I have a headache and runny nose",
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "Help me narrow down the cause. I have a headache and a runny nose.",
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//PreKnowledge",
+        "$ref" : "//@author/@preknowledge.1"
+      }, {
+        "eClass" : "http://www.unikoblenz.de/keml#//PreKnowledge",
+        "$ref" : "//@author/@preknowledge.0"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "A list of possible causes. Any other symptoms?",
+      "timing" : 1,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "Sorry to hear you're not feeling well! A headache and runny nose can have several possible causes. Here are some common ones:\n\n1. **Common Cold**: The typical culprit for symptoms like a runny nose and headache. You might also feel tired or have a sore throat.\n   \n2. **Sinusitis**: Inflammation of the sinuses often causes headaches, a runny nose, and facial pressure. It can follow a cold or be triggered by allergies.\n   \n3. **Allergies**: Seasonal allergies or allergic reactions can cause a runny nose and headache, along with sneezing, itchy eyes, or throat irritation.\n\n4. **Flu**: Similar to a cold but with more intense symptoms like body aches, fever, chills, or fatigue.\n\n5. **COVID-19**: Can sometimes present with similar symptoms to a cold or flu, but you might also have a cough, sore throat, or loss of taste and smell.\n\nIs there any other symptom you’ve noticed, like fever, body aches, or a sore throat? That might help narrow things down more.",
+      "generates" : [ {
+        "message" : "Allergies",
+        "asLiterals" : [ {
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.0/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        }, {
+          "negated" : true,
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.2/@asLiterals.0"
+          } ]
+        } ]
+      }, {
+        "message" : "Common Cold",
+        "asLiterals" : [ {
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.0/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        }, {
+          "negated" : true,
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@messages.5/@generates.0/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        } ]
+      }, {
+        "message" : "Sinus Infection",
+        "asLiterals" : [ {
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.0/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        }, {
+          "negated" : true,
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@messages.5/@generates.1/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        } ]
+      }, {
+        "message" : "Flu",
+        "asLiterals" : [ {
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.0/@asLiterals.0/@usedInJunctions.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.4/@asLiterals.0/@usedInJunctions.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@messages.9/@generates.0/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        }, {
+          "negated" : true
+        } ]
+      }, {
+        "message" : "COVID-19",
+        "asLiterals" : [ {
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.0/@asLiterals.0/@usedInJunctions.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.4/@asLiterals.0/@usedInJunctions.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@messages.9/@generates.0/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        }, {
+          "negated" : true,
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.6/@asLiterals.0"
+          } ]
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "No allergies as far as I know",
+      "timing" : 2,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "I have no allergies that I know of",
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//PreKnowledge",
+        "$ref" : "//@author/@preknowledge.2"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Same list excluding allergies. Any other symptoms?",
+      "timing" : 3,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "Got it! Since you don’t have allergies, that rules out one common cause. Based on your symptoms (headache and runny nose), here are some possibilities to consider:\n\n1. **Common Cold**: If you’ve had recent exposure to others who were sick, this could be a straightforward viral infection. It usually comes with a sore throat or mild cough, though not always.\n\n2. **Sinus Infection (Sinusitis)**: This is common after a cold, especially if the headache is more intense in the front of your face (around the forehead, cheeks, and eyes). It can cause a runny nose, congestion, and sometimes pressure.\n\n3. **Flu**: If you're feeling fatigued or have muscle aches alongside the headache and runny nose, it might be the flu. The flu tends to come on quickly, often with chills, body aches, and sometimes fever.\n\n4. **COVID-19**: It’s still possible, though it’s harder to distinguish from the cold or flu without other symptoms like a cough, sore throat, or loss of taste/smell. If you're worried, it could be worth checking with a test.\n\nIf you're not feeling worse or developing other symptoms, it’s probably just a mild viral infection. If you have any additional symptoms or it lasts longer than a few days, seeing a healthcare provider might be helpful.\n\nHow are you feeling otherwise? Any other symptoms popping up?"
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "additional symptoms are fever and sore throat",
+      "timing" : 4,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "Additional symptoms are Fever and sore throat.",
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//PreKnowledge",
+        "$ref" : "//@author/@preknowledge.3"
+      }, {
+        "eClass" : "http://www.unikoblenz.de/keml#//PreKnowledge",
+        "$ref" : "//@author/@preknowledge.4"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Same list excluding sinus Infection and common cold  but including Strep throat",
+      "timing" : 5,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "With the addition of a **fever** and **sore throat**, the possibilities shift a bit. Here are some things to consider:\n\n1. **Flu (Influenza)**: The flu often presents with a high fever, sore throat, headache, fatigue, and body aches. If you're feeling generally unwell and achy, this could be a likely cause. \n\n2. **COVID-19**: It can also cause a sore throat, fever, and headache, along with other symptoms like cough or loss of taste/smell. Given that it’s still circulating, it’s worth considering, especially if you’ve been exposed recently.\n\n3. **Strep Throat**: This is a bacterial infection that causes a very sore throat, sometimes accompanied by fever and headache. It doesn’t typically cause a runny nose, though.\n\n4. **Sinus Infection (Sinusitis)**: If the fever is mild and you're feeling congestion or pressure in your sinuses, sinusitis could be the cause, especially if it developed after a cold.\n\nGiven that you have a fever and sore throat, it's a good idea to monitor for any worsening symptoms. If the fever gets high, you develop difficulty swallowing, or you start feeling significantly worse, it might be a good idea to reach out to a healthcare provider. In particular, **strep throat** requires antibiotic treatment, and **flu** or **COVID-19** might require additional care or isolation.\n\nHow’s your fever—pretty high, or mild?",
+      "generates" : [ {
+        "message" : "Introduction of fever and sore throat eliminates  common cold",
+        "asLiterals" : [ {
+          "usedInJunctions" : [ {
+            "content" : [ {
+              "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+              "$ref" : "//@author/@preknowledge.3/@asLiterals.0"
+            }, {
+              "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+              "$ref" : "//@author/@preknowledge.4/@asLiterals.0"
+            }, {
+              "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+              "$ref" : "//@author/@messages.5/@generates.0/@asLiterals.0"
+            } ]
+          } ]
+        }, {
+          "negated" : true,
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@messages.13/@generates.0/@asLiterals.0"
+          } ]
+        } ]
+      }, {
+        "message" : "Introduction of fever and sore throat eliminates  sinus infection",
+        "asLiterals" : [ {
+          "usedInJunctions" : [ {
+            "content" : [ {
+              "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+              "$ref" : "//@author/@preknowledge.3/@asLiterals.0"
+            }, {
+              "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+              "$ref" : "//@author/@preknowledge.4/@asLiterals.0"
+            }, {
+              "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+              "$ref" : "//@author/@messages.5/@generates.1/@asLiterals.0"
+            } ]
+          } ]
+        }, {
+          "negated" : true,
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@messages.15/@generates.0/@asLiterals.0"
+          } ]
+        } ]
+      }, {
+        "message" : "Strep Throat",
+        "isUsedOn" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+          "$ref" : "//@author/@messages.6"
+        } ],
+        "asLiterals" : [ {
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.4/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        }, {
+          "negated" : true,
+          "premises" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Junction",
+            "$ref" : "//@author/@preknowledge.5/@asLiterals.0/@usedInJunctions.0"
+          } ]
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "What is Strep throat and what are its symptoms?",
+      "timing" : 6,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.1"
+      },
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+        "$ref" : "//@author/@messages.5/@generates.2"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Description, causes, symptoms, remedies",
+      "timing" : 7,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.1"
+      },
+      "generates" : [ {
+        "message" : "Strep throat causes red spots  on the back of the roof of the mouth",
+        "isUsedOn" : [ {
+          "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+          "$ref" : "//@author/@messages.8"
+        } ],
+        "asLiterals" : [ { }, {
+          "negated" : true
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "I don't have symptoms that are most typical to Strep throat",
+      "timing" : 8,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "Strep throat causes red spots on the back of the roof of the mouth which i don't have.",
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//NewInformation",
+        "$ref" : "//@author/@messages.7/@generates.0"
+      }, {
+        "eClass" : "http://www.unikoblenz.de/keml#//PreKnowledge",
+        "$ref" : "//@author/@preknowledge.5"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "This eliminates Strep throat. Emphasis on Flu or COVID",
+      "timing" : 9,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "You're right—strep throat can sometimes cause **red spots** or **white patches** on the roof of the mouth, as well as swollen tonsils. If you're not seeing that, it's less likely to be strep throat, although it’s still possible to have it without those classic signs.\n\nSince you're dealing with **fever, sore throat, headache**, and a **runny nose**, that makes me lean more toward the **flu** or **COVID-19** at this point. Both can present with similar symptoms like fever and sore throat, along with general aches and fatigue. The **runny nose** is a bit less common in the flu but can still occur, and sometimes people confuse the early symptoms of flu and COVID-19.\n\nIf you have the option, it might be worth doing a **COVID-19 test** and keeping an eye on your symptoms. \n\nHow are you feeling overall? Any major changes in how you're doing since the symptoms started?",
+      "generates" : [ {
+        "message" : "Eliminating strep throat makes Flu or COVID more likely",
+        "asLiterals" : [ {
+          "usedInJunctions" : [ {
+            "content" : [ {
+              "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+              "$ref" : "//@author/@messages.5/@generates.2/@asLiterals.1"
+            }, {
+              "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+              "$ref" : "//@author/@messages.9/@generates.0/@asLiterals.0"
+            } ]
+          } ]
+        }, {
+          "negated" : true
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "COVID test yields negative result",
+      "timing" : 10,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "COVID test yielded a negative result.",
+      "uses" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//PreKnowledge",
+        "$ref" : "//@author/@preknowledge.6"
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Most likely Flu. Suggestions for remedies",
+      "timing" : 11,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "Thanks for the update! A negative COVID test rules that out, so it’s likely not the source of your symptoms. Given the fever, sore throat, headache, and runny nose, the **flu** becomes a more likely cause. The flu can hit quickly with these kinds of symptoms and often includes a sore throat, fever, chills, and fatigue.\n\nIf it is the flu, the symptoms usually last for about a week or so, but it’s a good idea to rest, stay hydrated, and manage the fever with over-the-counter medications like acetaminophen or ibuprofen.\n\nYou could also consider seeing a doctor, especially if the fever persists for more than a few days, or if you develop any new, concerning symptoms.\n\nAre you feeling pretty run down, or have any other signs popped up?"
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "Why disregard Common Cold?",
+      "timing" : 12,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "Why did you disregard common cold?"
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Common cold is still possible but just less likely",
+      "timing" : 13,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "You're right to ask! A **common cold** definitely could be the cause, especially since you're dealing with symptoms like a runny nose and headache. Colds typically don’t cause a high fever, but they can come with a sore throat, congestion, and mild headaches. The cold tends to have a gradual onset compared to the flu, which often feels more intense right away.\n\nSince you mentioned a **fever** and **sore throat**, those two symptoms made the flu seem more likely, as it tends to have a more prominent fever and body aches. But I should have acknowledged that a cold *can* still present with those symptoms, especially if it's a particularly bad cold or if you're more sensitive to the virus. \n\nIn summary, it’s possible it’s still a cold, especially with the negative COVID test. If the fever is mild or only lasts a day or two, it could indeed just be a cold. If it lingers longer or gets worse, that’s when we’d start thinking more about flu or other possibilities.\n\nDo you feel like your symptoms are more mild and slowly building, or did they come on pretty quickly?",
+      "generates" : [ {
+        "message" : "Common cold is still possible  but is less likely",
+        "asLiterals" : [ { }, {
+          "negated" : true
+        } ]
+      } ]
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+      "content" : "Why disregard Sinus Infection?",
+      "timing" : 14,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "Why did you disregard sinus infection?"
+    }, {
+      "eClass" : "http://www.unikoblenz.de/keml#//ReceiveMessage",
+      "content" : "Fever and Sore throat not typical symptoms",
+      "timing" : 15,
+      "counterPart" : {
+        "eClass" : "http://www.unikoblenz.de/keml#//ConversationPartner",
+        "$ref" : "//@conversationPartners.0"
+      },
+      "originalContent" : "You're absolutely right to ask about that, too. A **sinus infection (sinusitis)** can definitely cause symptoms like headache, runny nose, and a sore throat (due to post-nasal drip), and it can sometimes be accompanied by a low-grade fever. I focused more on the flu and COVID-19 because of the presence of fever and sore throat, which are more commonly associated with those conditions. But sinus infections can absolutely mimic these symptoms.\n\nSinus infections are often characterized by:\n- A **headache** that feels like pressure around the forehead, eyes, or cheeks.\n- **Runny nose** or congestion that might last for more than a week.\n- **Sore throat** due to post-nasal drip.\n- **Fever** (typically mild).\n\nThe difference is that **sinusitis** often develops after a cold or due to allergies, and the congestion or facial pressure tends to be more pronounced.\n\nSince your symptoms include a **headache** and **runny nose**, along with a **sore throat** and **fever**, a sinus infection could very well be a possibility. If you're feeling pressure around your face or sinuses, or if the headache feels different from a typical tension headache, that would make sinusitis more likely.\n\nIf your symptoms persist or worsen, it might be helpful to see a doctor for further evaluation to check for sinusitis, especially if you’re not improving after a few days.\n\nThanks for bringing that up! How do you feel in terms of facial pressure or congestion around your eyes/forehead?",
+      "generates" : [ {
+        "message" : "Sinus infection is still possible but is less likely",
+        "asLiterals" : [ { }, {
+          "negated" : true
+        } ]
+      } ]
+    } ],
+    "preknowledge" : [ {
+      "message" : "Headache",
+      "isUsedOn" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+        "$ref" : "//@author/@messages.0"
+      } ],
+      "asLiterals" : [ {
+        "usedInJunctions" : [ {
+          "content" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.1/@asLiterals.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.0/@asLiterals.0"
+          } ]
+        } ]
+      }, {
+        "negated" : true
+      } ]
+    }, {
+      "message" : "Runny nose",
+      "isUsedOn" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+        "$ref" : "//@author/@messages.0"
+      } ],
+      "asLiterals" : [ { }, {
+        "negated" : true
+      } ]
+    }, {
+      "message" : "No known allergies",
+      "isUsedOn" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+        "$ref" : "//@author/@messages.2"
+      } ],
+      "asLiterals" : [ { }, {
+        "negated" : true
+      } ]
+    }, {
+      "message" : "Fever",
+      "isUsedOn" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+        "$ref" : "//@author/@messages.4"
+      } ],
+      "asLiterals" : [ { }, {
+        "negated" : true
+      } ]
+    }, {
+      "message" : "Sore throat",
+      "isUsedOn" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+        "$ref" : "//@author/@messages.4"
+      } ],
+      "asLiterals" : [ {
+        "usedInJunctions" : [ {
+          "content" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.1/@asLiterals.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.0/@asLiterals.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.3/@asLiterals.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.4/@asLiterals.0"
+          } ]
+        } ]
+      }, {
+        "negated" : true
+      } ]
+    }, {
+      "message" : "No red spots on the back of the roof of the mouth",
+      "isUsedOn" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+        "$ref" : "//@author/@messages.8"
+      } ],
+      "asLiterals" : [ {
+        "usedInJunctions" : [ {
+          "content" : [ {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@messages.7/@generates.0/@asLiterals.0"
+          }, {
+            "eClass" : "http://www.unikoblenz.de/keml#//Literal",
+            "$ref" : "//@author/@preknowledge.5/@asLiterals.0"
+          } ]
+        } ]
+      }, {
+        "negated" : true
+      } ]
+    }, {
+      "message" : "COVID test is negative",
+      "isUsedOn" : [ {
+        "eClass" : "http://www.unikoblenz.de/keml#//SendMessage",
+        "$ref" : "//@author/@messages.10"
+      } ],
+      "asLiterals" : [ { }, {
+        "negated" : true
+      } ]
+    } ]
+  },
+  "conversationPartners" : [ {
+    "name" : "LLM"
+  }, {
+    "name" : "Browser"
+  } ]
+}

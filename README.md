@@ -1,6 +1,9 @@
 # KEML sample
 
-This project holds sample files on which you can try out the different KEML modules. We prepared to conversations from our first case study (log4j) with all corresponding files as **introductoryExamples** in a folder with that name.
+**Note:** This branch features an alternative [KEML](https://github.com/keml-group/) component that leverages a logic-based argumentation framework (**LAF**), and is currently *only* tested for use in conjunction with the other LAF components of KEML. For the corresponding base version of this component, see the [base sample](https://github.com/keml-group/keml.sample) repository.
+-----------------------
+
+This project holds sample files on which you can try out the different KEML modules. We prepared to conversations from our first case study (log4j) with all corresponding files as **LAFExamples** in a folder with that name.
 You can run the KEML code on it to re-generate files and compare the content (most convenient with `git diff`).
 
 ## Expected Folder Structure
